@@ -13,7 +13,7 @@ export default createGlobalStyle`
 
   body {
     background: ${(props) => props.theme.colors.background};
-    color: ${(props) => props.theme.colors.black};
+    color: ${(props) => props.theme.colors.text};
   }
 
   body, input, textarea, button {
@@ -29,8 +29,8 @@ export default createGlobalStyle`
     text-decoration: none;
   }
 
-  h1, h2, h3, h4, h5, h6, a {
-    font-family: Gilroy-ExtraBold, sans-serif;
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 800;
   }
 
   #__next {

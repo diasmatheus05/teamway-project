@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react";
-
-interface Question {
-  text: string;
-  answers: { value: number; label: string }[];
-}
+import { Question } from "../entities/Question";
+import { getTestQuestions } from "../services/getTestQuestions";
 
 export function useQuestions() {
   const [questions, setQuestions] = useState<Question[]>([]);
@@ -18,25 +15,8 @@ export function useQuestions() {
 
   useEffect(() => {
     async function fetchQuestions() {
-      setQuestions([
-        {
-          text: "You’re really busy at work and a colleague is telling you their life story and personal woes. You:",
-          answers: [
-            { label: "Don’t dare to interrupt them", value: 1 },
-            {
-              label:
-                "Think it’s more important to give them some of your time; work can wait",
-              value: 2,
-            },
-            { label: "Listen, but with only with half an ear", value: 3 },
-            {
-              label:
-                "Interrupt and explain that you are really busy at the moment",
-              value: 4,
-            },
-          ],
-        },
-      ]);
+      const questions_response = await getTestQuestions();
+      setQuestions(questions_response);
       setIsLoading(false);
     }
     fetchQuestions();

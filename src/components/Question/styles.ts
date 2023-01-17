@@ -4,7 +4,6 @@ export const QuestionText = styled.h1`
   max-width: 800px;
   text-align: center;
 
-  margin-top: 16px;
   margin-bottom: 32px;
 `;
 

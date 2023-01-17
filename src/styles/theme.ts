@@ -10,15 +10,18 @@ const size = {
 
 const theme = {
   colors: {
-    background: "#2f6126",
+    background: "#1f4819",
     text: "#FFFFFF",
     primary: {
       light: "#3f7b32",
       main: "#2f6126",
+      "primary-400": "#18A999",
       "primary-500": "#1f4819",
       "primary-600": "#102e0d",
       "primary-700": "#001500",
     },
+    grey: "#F7F0F0",
+    blue: "#8AF3FF",
     black: "#000000",
     white: "#FFFFFF",
     "gray-300": "#f6f6f6",

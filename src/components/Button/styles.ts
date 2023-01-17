@@ -9,11 +9,12 @@ export const Button = styled.button`
   text-transform: uppercase;
   font-weight: 800;
 
-  background-color: ${(props) => props.theme.colors.primary["primary-600"]};
-  transition: background-color 0.5s;
+  background-color: ${(props) => props.theme.colors.primary.main};
+  transition: 0.5s;
   color: ${(props) => props.theme.colors.white};
 
   &:hover {
-    background-color: ${(props) => props.theme.colors.primary["primary-700"]};
+    background-color: ${(props) => props.theme.colors.blue};
+    color: ${(props) => props.theme.colors.black};
   }
 `;

@@ -12,7 +12,11 @@ export default createGlobalStyle`
   }
 
   body {
-    background: ${(props) => props.theme.colors.background};
+    /* background: ${(props) => props.theme.colors.background}; */
+    /* background: rgb(0,21,0); */
+    background: radial-gradient(circle, ${(props) =>
+      props.theme.colors.primary["primary-700"]} 70%, ${(props) =>
+  props.theme.colors.primary.main} 100%);
     color: ${(props) => props.theme.colors.text};
   }
 

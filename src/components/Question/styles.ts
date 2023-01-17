@@ -15,11 +15,8 @@ export const AnswersWrapper = styled.div`
 
 export const Answer = styled.div<{ isSelected?: boolean }>`
   background-color: ${(props) =>
-    props.isSelected
-      ? props.theme.colors.primary.light
-      : props.theme.colors.white};
-  color: ${(props) =>
-    props.isSelected ? props.theme.colors.white : props.theme.colors.black};
+    props.isSelected ? props.theme.colors.blue : props.theme.colors.white};
+  color: ${(props) => props.theme.colors.black};
 
   display: flex;
   align-items: center;
@@ -30,18 +27,12 @@ export const Answer = styled.div<{ isSelected?: boolean }>`
   border-radius: 8px;
   border: 4px solid
     ${(props) =>
-      props.isSelected
-        ? props.theme.colors.primary["primary-600"]
-        : props.theme.colors.white};
+      props.isSelected ? props.theme.colors.blue : props.theme.colors.white};
   transition: border-color 0.2s;
 
   cursor: pointer;
 
   &:hover {
-    border: 4px solid
-      ${(props) =>
-        props.isSelected
-          ? props.theme.colors.primary["primary-700"]
-          : props.theme.colors.primary["primary-500"]};
+    border: 4px solid ${(props) => props.theme.colors.primary["primary-700"]};
   }
 `;

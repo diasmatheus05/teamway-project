@@ -1,34 +1,35 @@
 import { Button } from "../../components/Button";
-import {
-  Answer,
-  AnswersWrapper,
-  ButtonWrapper,
-  Counter,
-  Question,
-} from "./styles";
+import { Question } from "../../components/Question";
+import { useQuestions } from "../../hooks/useQuestions";
+import { ButtonWrapper, Counter } from "./styles";
 
 export default function PersonalityTest() {
+  const {
+    questions,
+    currentQuestion,
+    isLastQuestion,
+    isLoading,
+    handleChange,
+    handleNextQuestion,
+  } = useQuestions();
+
   return (
     <>
-      <Counter>1 / 5</Counter>
-      <Question>
-        You’re really busy at work and a colleague is telling you their life
-        story and personal woes. You:
-      </Question>
-      <AnswersWrapper>
-        <Answer isSelected>Don’t dare to interrupt them</Answer>
-        <Answer>
-          Think it’s more important to give them some of your time; work can
-          wait
-        </Answer>
-        <Answer>Listen, but with only with half an ear</Answer>
-        <Answer>
-          Interrupt and explain that you are really busy at the moment
-        </Answer>
-      </AnswersWrapper>
+      <Counter>
+        {currentQuestion + 1} / {questions.length}
+      </Counter>
+      {!isLoading && (
+        <Question
+          text={questions[currentQuestion].text}
+          answers={questions[currentQuestion].answers}
+          onChange={handleChange}
+        />
+      )}
 
       <ButtonWrapper>
-        <Button onClick={() => {}}>Next</Button>
+        <Button onClick={handleNextQuestion}>
+          {isLastQuestion ? "End" : "Next"}
+        </Button>
       </ButtonWrapper>
     </>
   );

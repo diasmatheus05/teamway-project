@@ -1,18 +1,19 @@
-import {
-  Header as StyledHeader,
-  Option,
-  OptionsWrapper,
-  Title,
-} from "./styles";
+import { Container, Option, OptionsWrapper, Title } from "./styles";
+import { HeaderProps } from "./types";
 
-export function Header() {
+export default function Header({ title, options }: HeaderProps) {
+  const hasOptions = options && !!options.length;
+
   return (
-    <StyledHeader>
-      <Title>Personality Test Application</Title>
-      <OptionsWrapper>
-        <Option>My Results</Option>
-        <Option>My Profile</Option>
-      </OptionsWrapper>
-    </StyledHeader>
+    <Container>
+      <Title>{title}</Title>
+      {hasOptions && (
+        <OptionsWrapper>
+          {options.map((opt) => (
+            <Option key={opt.label}>{opt.label}</Option>
+          ))}
+        </OptionsWrapper>
+      )}
+    </Container>
   );
 }

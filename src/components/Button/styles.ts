@@ -10,5 +10,10 @@ export const Button = styled.button`
   font-weight: 800;
 
   background-color: ${(props) => props.theme.colors.primary["primary-600"]};
+  transition: background-color 0.5s;
   color: ${(props) => props.theme.colors.white};
+
+  &:hover {
+    background-color: ${(props) => props.theme.colors.primary["primary-700"]};
+  }
 `;

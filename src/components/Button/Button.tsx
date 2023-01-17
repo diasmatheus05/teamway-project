@@ -1,10 +1,14 @@
 import { Button as StyledButton } from "./styles";
+import { ButtonProps } from "./types";
 
-interface ButtonProps {
-  children: string;
-  type?: "button" | "submit";
-}
-
-export function Button({ children, type = "button" }: ButtonProps) {
-  return <StyledButton type={type}>{children}</StyledButton>;
+export default function Button({
+  children,
+  type = "button",
+  onClick,
+}: ButtonProps) {
+  return (
+    <StyledButton type={type} onClick={onClick}>
+      {children}
+    </StyledButton>
+  );
 }
